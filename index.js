@@ -20,7 +20,7 @@ function processFirstItem(stringList, callback) {
 console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
 // ⭐️ Example Challenge END ⭐️
-console.log("test")
+
 
 ///// M V P ///////
 
@@ -28,12 +28,12 @@ console.log("test")
   
   Study the code for counter1 and counter2, then answer the questions below.
   
-  1. What is the difference between counter1 and counter2?
+  1. What is the difference between counter1 and counter2? counter1 is a regular function while counter2 has a callback to the parent function via counter2()
   
-  2. Which of the two uses a closure? How can you tell?
+  2. Which of the two uses a closure? How can you tell? counter2 because it has a callback function
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     counter2 be better?  counter2 is preferable to avoid errors and variable privacy
 */
 
 // counter1 code
@@ -63,11 +63,18 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
+function inning(){
     /*Code Here*/
+    return Math.floor(Math.random()*3);
+    
+
 }
-
-
+console.log(inning());
+console.log(inning());
+console.log(inning());
+console.log(inning());
+console.log(inning());
+console.log(inning());
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
   1. Receive the callback function `inning` that was created in Task 2 
