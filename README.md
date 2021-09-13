@@ -58,7 +58,7 @@ You will be running your tests in one terminal and debugging in the other. As yo
 
 Edit the `ReadMe` file with your answers to the questions below.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences). A closure is a function inside another function with references to the parent to access variable data. 
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -79,9 +79,9 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+a. Where is closure used in this code? How can you tell? the return function because its getting data from the parent personalDice to then be returned
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? the name "Dan" will always remain the same because its passed by personaldice inside dansroll. the dice roll number will change due to personal dice accessing math functions.
+c. What is the lexical scope of `newRoll`?  scope of fucntion()
 
 
 ### Task 3 - Stretch Goals
