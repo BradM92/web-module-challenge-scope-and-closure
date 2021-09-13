@@ -181,15 +181,15 @@ function scoreboard(inningScoredCB, inningCB, inningsPlayed) {
   scoreboardOfficial[i] = `Inning ${i}: ${awayScoreInning} - ${homeScoreInning}`;
   }
   if( awayScoreF === homeScoreF){
-    console.log(scoreboardOfficial);
-    return (`This game will require extra innings: ${awayScoreF} - ${homeScoreF} `)
+    scoreboardOfficial.push(`This game will require extra innings: ${awayScoreF} - ${homeScoreF} `)
   }else{
-    console.log(scoreboardOfficial);
-    return `the Final Score is: ${awayScoreF} - ${homeScoreF} `;
+    
+    scoreboardOfficial.push(`the Final Score is: ${awayScoreF} - ${homeScoreF}`);
   }
+  return scoreboardOfficial;
 }
 
-console.log(scoreboard(getInningScore,inning,9))
+console.log(scoreboard(getInningScore,inning,9));
 
 
 
