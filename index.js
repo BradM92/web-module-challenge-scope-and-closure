@@ -1,4 +1,5 @@
 // ⭐️ Example Challenge START ⭐️
+// first commit
 
 /**Example Task : processFirstItem()
  * This example shows how you might go about solving the rest of the tasks
@@ -19,7 +20,7 @@ function processFirstItem(stringList, callback) {
 console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
 // ⭐️ Example Challenge END ⭐️
-
+console.log("test")
 
 ///// M V P ///////
 
