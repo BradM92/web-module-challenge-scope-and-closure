@@ -66,15 +66,8 @@ NOTE: This will be a callback function for the tasks below
 function inning(){
     /*Code Here*/
     return Math.floor(Math.random()*3);
-    
-
 }
-console.log(inning());
-console.log(inning());
-console.log(inning());
-console.log(inning());
-console.log(inning());
-console.log(inning());
+
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
   1. Receive the callback function `inning` that was created in Task 2 
@@ -89,18 +82,49 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(scoreCB){
+
   /*Code Here*/
+  console.log(scoreCB());
+  let homeInnings = [];
+  let awayInnings = [];
+  let homeFinalScore = 0;
+  let awayFinalScore = 0;
+  for( let i = 0; i<9; i++){
+    homeInnings.push(scoreCB());
+    awayInnings.push(scoreCB());
+  }
+  console.log(homeInnings);
+  console.log(awayInnings);
+  for(let c = 0; c <9 ; c++){
+    homeFinalScore = homeFinalScore + homeInnings[c];
+    awayFinalScore = awayFinalScore + awayInnings[c];
+  }
+  return {
+    "Home": homeFinalScore,
+    "Away": awayFinalScore
+  }
 }
+
+
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
+function getInningScore(ScoreCBF) {
   /*Your Code Here */
+  return {
+    "Home": ScoreCBF(),
+    "Away": ScoreCBF(),
+  }
+
 }
+console.log(getInningScore(inning));
+console.log(getInningScore(inning));
+
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -144,10 +168,19 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(inningScoredCB, inningCB, inningsPlayed) {
   /* CODE HERE */
+  let scoreboardOfficial = [];
+  for (let i = 0; i<= inningsPlayed; i++){
+   let  inningScore = inningScoredCB(inningCB);
+   console.log(inningScore);
+  scoreboardOfficial[i] = `Inning ${i}: ${inningScore}`;
+  }
+  return scoreboardOfficial;
+  
 }
 
+console.log(scoreboard(getInningScore,inning,9))
 
 
 
