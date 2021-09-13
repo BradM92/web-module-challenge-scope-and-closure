@@ -117,8 +117,8 @@ Use the getInningScore() function below to do the following:
 function getInningScore(ScoreCBF) {
   /*Your Code Here */
   return {
-    "Home": ScoreCBF(),
-    "Away": ScoreCBF(),
+    Home: ScoreCBF(),
+    Away: ScoreCBF(),
   }
 
 }
@@ -171,13 +171,22 @@ Use the scoreboard function below to do the following:
 function scoreboard(inningScoredCB, inningCB, inningsPlayed) {
   /* CODE HERE */
   let scoreboardOfficial = [];
+  let homeScoreF = 0;
+  let awayScoreF = 0;
   for (let i = 0; i<= inningsPlayed; i++){
-   let  inningScore = inningScoredCB(inningCB);
-   console.log(inningScore);
-  scoreboardOfficial[i] = `Inning ${i}: ${inningScore}`;
+    let homeScoreInning = inningScoredCB(inningCB).Home; 
+    let awayScoreInning = inningScoredCB(inningCB).Away;
+    homeScoreF = homeScoreF + homeScoreInning;
+    awayScoreF = awayScoreF + awayScoreInning;
+  scoreboardOfficial[i] = `Inning ${i}: ${awayScoreInning} - ${homeScoreInning}`;
   }
-  return scoreboardOfficial;
-  
+  if( awayScoreF === homeScoreF){
+    console.log(scoreboardOfficial);
+    return (`This game will require extra innings: ${awayScoreF} - ${homeScoreF} `)
+  }else{
+    console.log(scoreboardOfficial);
+    return `the Final Score is: ${awayScoreF} - ${homeScoreF} `;
+  }
 }
 
 console.log(scoreboard(getInningScore,inning,9))
